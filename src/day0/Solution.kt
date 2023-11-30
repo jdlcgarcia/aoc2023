@@ -9,4 +9,4 @@ fun main() {
     println(testInput[0])
 }
 
-fun readInput() = Path("src/main/kotlin/day0/input.txt").readLines()
+fun readInput() = Path("src/day0/input.txt").readLines()
