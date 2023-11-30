@@ -31,3 +31,6 @@ bin/
 
 # Ignore generated .jar files
 *.jar
+
+# Ignore txt files to not disclose input of the code challenge
+*.txt

@@ -1,5 +1,12 @@
 package day0
 
+import kotlin.io.path.Path
+import kotlin.io.path.readLines
+
 fun main() {
-    println("Hello, World! This is the start of Advent of Code 2023.")
+    val testInput = readInput()
+
+    println(testInput[0])
 }
+
+fun readInput() = Path("src/main/kotlin/day0/input.txt").readLines()
