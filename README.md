@@ -27,4 +27,5 @@ make runXX
 ```
 
 ## List of days:
-[0: Setting up the environment](https://github.com/jdlcgarcia/aoc2023/tree/day/00)
+[Day 0: Setting up the environment](https://github.com/jdlcgarcia/aoc2023/tree/day/00)
+[Day 1: Trebuchet?!](https://github.com/jdlcgarcia/aoc2023/tree/day/01)
