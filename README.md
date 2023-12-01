@@ -20,7 +20,11 @@ For more information and to participate in Advent of Code, visit [Advent of Code
 1. Navigate to the day's Kotlin package you want to explore.
 2. Review the `README.md` file within each day's package for specific details about the challenge.
 3. Run the solution code using Kotlin's standard tools or your preferred IDE.
+4. Or execute the following command for the day XX
 
 ```bash
-kotlinc Solution.kt -include-runtime -d Solution.jar
-java -jar Solution.jar
+make runXX
+```
+
+## List of days:
+[0: Setting up the environment](https://github.com/jdlcgarcia/aoc2023/tree/day/00)
