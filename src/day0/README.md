@@ -1,15 +1,14 @@
-# Day 0: Hello World in Kotlin
+# Day 0
 
-Welcome to Day 0 of Advent of Code 2023!
+This directory contains the Kotlin solution and input data for Day 0 of Advent of Code 2023.
 
-## Description
+## Instructions
 
-This day serves as a warm-up, and it's all about printing a simple "Hello, World!" message in Kotlin. This is the starting point for our Advent of Code journey.
+1. Implement your solution in `Solution.kt`.
+2. Build and run your solution using the provided Makefile target:
 
-## Running the Solution
+   ```
+   make run0
+   ```
 
-Navigate to the `day0` directory and run the Kotlin program using the following commands:
-
-```bash
-kotlinc src/common/FileHandler.kt src/day0/Solution.kt -include-runtime -d src/day0/Solution.jar
-java -jar src/day0/Solution.jar
+Happy coding!
