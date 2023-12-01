@@ -1,12 +1,9 @@
 package day0
 
-import kotlin.io.path.Path
-import kotlin.io.path.readLines
+import common.readInput
 
 fun main() {
-    val testInput = readInput()
+    val testInput = readInput("day0")
 
     println(testInput[0])
 }
-
-fun readInput() = Path("src/day0/input.txt").readLines()

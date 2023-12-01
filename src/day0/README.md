@@ -11,5 +11,5 @@ This day serves as a warm-up, and it's all about printing a simple "Hello, World
 Navigate to the `day0` directory and run the Kotlin program using the following commands:
 
 ```bash
-kotlinc Solution.kt -include-runtime -d Solution.jar
-java -jar Solution.jar
+kotlinc src/common/FileHandler.kt src/day0/Solution.kt -include-runtime -d src/day0/Solution.jar
+java -jar src/day0/Solution.jar
