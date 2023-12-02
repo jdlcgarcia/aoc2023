@@ -1,8 +1,9 @@
 package day02
 
 import common.readInput
+import kotlin.math.min
 
-data class Game(val gameNumber: Int, val possible: Boolean)
+data class Game(val gameNumber: Int, val possible: Boolean, val power: Int)
 
 fun main() {
     val testInput = readInput("day02")
@@ -16,9 +17,11 @@ fun main() {
     val games: MutableList<Game> = mutableListOf()
 
     var sumOfPossibleGames: Int = 0
+    var sumOfPowers: Int = 0
 
     for (line in testInput) {
         val game = parseGame(line, limitations)
+        sumOfPowers += game.power
         games.add(game)
         if (game.possible) {
             sumOfPossibleGames += game.gameNumber
@@ -27,9 +30,16 @@ fun main() {
 
     println("What is the sum of the IDs of those games?")
     println(sumOfPossibleGames.toString())
+    println("What is the sum of the power of these sets?")
+    println(sumOfPowers.toString())
 }
 
 fun parseGame(line: String, limitations: Map<String, Int>): Game {
+    val minimumCubes = mutableMapOf(
+        "red" to 0,
+        "green" to 0,
+        "blue" to 0
+    )
     val basicGameLine = line.split(':')
     val gameDescription = basicGameLine[0].split(' ')
 
@@ -45,6 +55,9 @@ fun parseGame(line: String, limitations: Map<String, Int>): Game {
                 val color = parts[1]
                 if (count != null) {
                     colorMap[color] = count
+                    if (minimumCubes[color]!! < count) {
+                        minimumCubes[color] = count
+                    }
                 }
             }
         }
@@ -53,7 +66,11 @@ fun parseGame(line: String, limitations: Map<String, Int>): Game {
         }
     }
 
-    return Game(gameDescription[1].toInt(), possibleGame)
+    return Game(gameDescription[1].toInt(), possibleGame, calculatePower(minimumCubes))
+}
+
+fun calculatePower(minimumCubes: MutableMap<String, Int>): Int {
+    return minimumCubes.values.reduce { acc, value -> acc * value }
 }
 
 fun checkGameViability(colorMap: MutableMap<String, Int>, limitations: Map<String, Int>): Boolean {
