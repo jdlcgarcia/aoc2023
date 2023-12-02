@@ -1,7 +1,6 @@
 package day02
 
 import common.readInput
-import kotlin.math.min
 
 data class Game(val gameNumber: Int, val possible: Boolean, val power: Int)
 
