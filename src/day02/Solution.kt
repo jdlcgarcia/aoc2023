@@ -5,8 +5,8 @@ import common.readInput
 data class Game(val gameNumber: Int, val possible: Boolean)
 
 fun main() {
-//    val testInput = readInput("day02")
-    val testInput = loadTestInput()
+    val testInput = readInput("day02")
+//    val testInput = loadTestInput()
     val limitations = mapOf(
         "red" to 12,
         "green" to 13,
@@ -36,24 +36,24 @@ fun parseGame(line: String, limitations: Map<String, Int>): Game {
     val gameTries = basicGameLine[1].split(';')
     var possibleGame = true
     for (gameTry in gameTries) {
-        if (possibleGame) {
-            val colorMap = mutableMapOf<String, Int>()
-            val extractions = gameTry.split(',')
-            for (singleColorExtraction in extractions) {
-                val parts = singleColorExtraction.trim().split(" ")
-                if (parts.size == 2) {
-                    val count = parts[0].toIntOrNull()
-                    val color = parts[1]
-                    if (count != null) {
-                        colorMap[color] = count
-                    }
+        val colorMap = mutableMapOf<String, Int>()
+        val extractions = gameTry.split(',')
+        for (singleColorExtraction in extractions) {
+            val parts = singleColorExtraction.trim().split(" ")
+            if (parts.size == 2) {
+                val count = parts[0].toIntOrNull()
+                val color = parts[1]
+                if (count != null) {
+                    colorMap[color] = count
                 }
             }
+        }
+        if (possibleGame) {
             possibleGame = checkGameViability(colorMap, limitations)
         }
     }
-    return Game(gameDescription[1].toInt(), possibleGame)
 
+    return Game(gameDescription[1].toInt(), possibleGame)
 }
 
 fun checkGameViability(colorMap: MutableMap<String, Int>, limitations: Map<String, Int>): Boolean {
