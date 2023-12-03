@@ -29,3 +29,4 @@ make runXX
 ## List of days:
 [Day 0: Setting up the environment](https://github.com/jdlcgarcia/aoc2023/tree/day/00)
 [Day 1: Trebuchet?!](https://github.com/jdlcgarcia/aoc2023/tree/day/01)
+[Day 2: Cube Conundrum](https://github.com/jdlcgarcia/aoc2023/tree/day/02)
