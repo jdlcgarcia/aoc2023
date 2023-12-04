@@ -5,7 +5,7 @@
 all:
 	@echo "Available targets:"
 	@echo "  dayXX: Create Kotlin package for day XX"
-	@echo "  executeXX: Build and run Kotlin solution for day XX"
+	@echo "  runXX: Build and run Kotlin solution for day XX"
 
 day:
 	@echo "Please specify a day (e.g., 'make dayXX')"
