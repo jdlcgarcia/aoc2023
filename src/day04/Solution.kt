@@ -7,34 +7,53 @@ fun main() {
     val testInput = readInput("day04")
 //    val testInput = loadTestInput()
     var sumOfPoints = 0
-
-//    val engine: MutableList<String> = mutableListOf()
+    var cardCounter = 0
+    var repetitionKeeper: MutableMap<Int, Int> = mutableMapOf()
+    var actualGamePointer = 1
 
     for (line in testInput) {
-        sumOfPoints += calculateScorePerRow(line)
+        if (repetitionKeeper[actualGamePointer] == null) {
+            repetitionKeeper[actualGamePointer] = 1
+        }
+        val partialPoints = calculateScorePerRow(line)
+//        println("process " + partialPoints + " points of game " + actualGamePointer)
+        for (gameIndex in 1..partialPoints) {
+            val index = gameIndex + actualGamePointer
+            val currentValue = repetitionKeeper.getOrDefault(index, 1)
+            repetitionKeeper[index] = currentValue + repetitionKeeper[actualGamePointer]!!
+//            println("add 1 card in position " + index + " for each of the " + repetitionKeeper[actualGamePointer] + " cards that we have from the current game, "+repetitionKeeper[index]+" in total")
+        }
+        sumOfPoints += (2.0).pow(partialPoints - 1).toInt()
+        actualGamePointer++
     }
 
     println("How many points are they worth in total?")
     println(sumOfPoints.toString())
+
+    for(numberOfCards in repetitionKeeper.values) {
+        cardCounter+=numberOfCards
+    }
+    println("how many total scratchcards do you end up with?")
+    println(cardCounter)
 }
 
 fun calculateScorePerRow(line: String): Int {
     val basicGameLine = line.split(':')
     val gameParts = basicGameLine[1].split('|')
-    var score = 0.0;
+    var score = 0;
 
     var game = mutableMapOf(
         "winning" to gameParts[0].split(' ').filter { it.isNotBlank() }.map { it.toInt() },
         "selected" to gameParts[1].split(' ').filter { it.isNotBlank() }.map { it.toInt() }
     )
 
-    for(selectedNumber in game["selected"]!!) {
+    for (selectedNumber in game["selected"]!!) {
         if (game["winning"]!!.indexOf(selectedNumber) > -1) {
             score++
         }
     }
 
-    return (2.0).pow(score - 1).toInt()
+    return score
 }
 
 
