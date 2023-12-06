@@ -30,3 +30,7 @@ make runXX
 [Day 0: Setting up the environment](https://github.com/jdlcgarcia/aoc2023/tree/day/00)
 [Day 1: Trebuchet?!](https://github.com/jdlcgarcia/aoc2023/tree/day/01)
 [Day 2: Cube Conundrum](https://github.com/jdlcgarcia/aoc2023/tree/day/02)
+[Day 3: Gear Ratios](https://github.com/jdlcgarcia/aoc2023/tree/day/03)
+[Day 4: Scratchcards](https://github.com/jdlcgarcia/aoc2023/tree/day/04)
+[Day 5: If You Give A Seed A Fertilizer](https://github.com/jdlcgarcia/aoc2023/tree/day/05)
+[Day 6: Wait For It](https://github.com/jdlcgarcia/aoc2023/tree/day/06)
