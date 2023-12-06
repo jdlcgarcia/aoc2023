@@ -38,7 +38,7 @@ build:
 
 build%:
 	@echo "Building solution for day $*"
-	@kotlinc src/common/FileHandler.kt src/day$*/Solution.kt -include-runtime -d src/day$*/Solution.jar
+	@kotlinc src/common/FileHandler.kt src/day$*/*.kt -include-runtime -d src/day$*/Solution.jar
 	@echo "Built Kotlin solution for day $*"
 
 execute:
